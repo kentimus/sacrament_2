@@ -21,7 +21,25 @@ namespace SacramentPlanner.Controllers
         // GET: Speakers
         public async Task<IActionResult> Index()
         {
-            var speakers = await _context.Speaker.ToListAsync();
+            var allMeetings = _context.Meeting.OrderByDescending(i => i.MeetingDate);
+            var viewModel = new List<Meeting>();
+
+            foreach (var meeting in allMeetings)
+            {
+                viewModel.Add(new Meeting
+                {
+                    MeetingID = meeting.MeetingID,
+                    MeetingDate = meeting.MeetingDate
+                });
+                //viewModel[meeting.MeetingID] = new Meeting { MeetingDate = meeting.MeetingDate };
+            }
+            ViewData["Meetings"] = viewModel;
+
+
+
+            var speakers = await _context.Speaker
+
+                .ToListAsync();
             return View(speakers);
         }
 
@@ -44,11 +62,17 @@ namespace SacramentPlanner.Controllers
         }
 
         // GET: Speakers/Create
-        public IActionResult Create()
+        public IActionResult Create(int id)
         {
+            
+
             var allMeetings = _context.Meeting.OrderByDescending(i => i.MeetingDate);
             var viewModel = new List<Meeting>();
-            
+            if (id != null)
+            {
+                ViewBag.MeetingID = id;
+            }
+
             foreach (var meeting in allMeetings)
             {
                 viewModel.Add(new Meeting
@@ -66,13 +90,22 @@ namespace SacramentPlanner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SpeakerID,MeetingID,SpeakerName,Subject")] Speaker speaker)
+        public async Task<IActionResult> Create([Bind("SpeakerID,MeetingID,SpeakerName,Subject")] Speaker speaker, string submit)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(speaker);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if(submit == "Add Another Speaker")
+                {
+                    return Redirect("../Create/" + speaker.MeetingID);
+                }
+                else
+                {
+                    return Redirect("../../Meetings/Details/" + speaker.MeetingID);
+                }
+
+                
             }
             return View(speaker);
         }
@@ -90,6 +123,21 @@ namespace SacramentPlanner.Controllers
             {
                 return NotFound();
             }
+
+
+            var allMeetings = _context.Meeting.OrderByDescending(i => i.MeetingDate);
+            var viewModel = new List<Meeting>();
+
+            foreach (var meeting in allMeetings)
+            {
+                viewModel.Add(new Meeting
+                {
+                    MeetingID = meeting.MeetingID,
+                    MeetingDate = meeting.MeetingDate
+                });
+            }
+            ViewData["Meetings"] = viewModel;
+
             return View(speaker);
         }
 

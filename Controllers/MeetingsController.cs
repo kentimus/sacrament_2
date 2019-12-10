@@ -39,6 +39,7 @@ namespace SacramentPlanner.Controllers
             }
 
             var meeting = await _context.Meeting
+                .Include(i => i.Speakers)
                 .FirstOrDefaultAsync(m => m.MeetingID == id);
             if (meeting == null)
             {
@@ -65,7 +66,8 @@ namespace SacramentPlanner.Controllers
             {
                 _context.Add(meeting);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Index));
+                return Redirect("../Speakers/Create/" + meeting.MeetingID);
             }
             return View(meeting);
         }
