@@ -1,8 +1,35 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Sacrament Planner";
 }
 
+
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Sacrament Planner</h1>
 </div>
+
+
+<div class="card-deck mt-5">
+    <div class="card bg-light">
+        <div class="card-body">
+            <h4 class="card-title">Add a new Week</h4>
+            <p class="card-text">Some example text.</p>
+            <a asp-area="" asp-controller="Meetings" asp-action="Create" class="btn btn-primary stretched-link">Add Week</a>
+        </div>
+    </div>
+    <div class="card bg-light">
+        <div class="card-body">
+            <h4 class="card-title">View Previous Weeks</h4>
+            <p class="card-text">Some example text.</p>
+            <a asp-area="" asp-controller="Meetings" asp-action="Index" class="btn btn-primary stretched-link">View Weeks</a>
+        </div>
+    </div>
+    <div class="card bg-light">
+        <div class="card-body">
+            <h4 class="card-title">View Speaker History</h4>
+            <p class="card-text">Some example text.</p>
+            <a asp-area="" asp-controller="Speakers" asp-action="Index" class="btn btn-primary stretched-link">See History</a>
+        </div>
+    </div>
+</div>
+
+
