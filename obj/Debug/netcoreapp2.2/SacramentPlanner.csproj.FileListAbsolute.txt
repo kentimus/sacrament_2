@@ -40,3 +40,4 @@ C:\Users\kent\source\repos\SacramentPlanner\obj\Debug\netcoreapp2.2\Razor\Views\
 C:\Users\kent\source\repos\SacramentPlanner\obj\Debug\netcoreapp2.2\Razor\Views\Meetings\Details.cshtml.g.cs
 C:\Users\kent\source\repos\SacramentPlanner\obj\Debug\netcoreapp2.2\Razor\Views\Meetings\Edit.cshtml.g.cs
 C:\Users\kent\source\repos\SacramentPlanner\obj\Debug\netcoreapp2.2\Razor\Views\Meetings\Index.cshtml.g.cs
+C:\Users\kent\source\repos\SacramentPlanner\obj\Debug\netcoreapp2.2\Razor\Views\Home\Credit.cshtml.g.cs
