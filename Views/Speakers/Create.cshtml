@@ -58,8 +58,17 @@
         </div>
     </div>
 
+    @if (ViewBag.MeetingID != null && ViewBag.MeetingID > 0)
+    {
+        <p><a asp-controller="Meetings"  asp-action="Details" asp-route-id="@ViewBag.MeetingID">View this meeting's details</a></p>
+    }
+    else
+    {
+        <p><a asp-action="Index">Back to List of Speakers</a></p>
+    }
+
     <div>
-        <a asp-action="Index">Back to List</a>
+       
     </div>
 
     @section Scripts {

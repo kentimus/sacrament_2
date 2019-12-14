@@ -26,7 +26,7 @@ fieldset{
     border : 1px solid #999;
     padding : 5px;
     border-radius : 5px;
-    background : #eee;
+    background : rgba(255,255,255,.8);
     box-shadow : 2px 2px 2px #777;
 }
 
@@ -34,6 +34,10 @@ legend{
     
 }
 
+
+.card.semi-trans {
+    background: rgba(255,255,255,.8);
+}
 
 
 /* Sticky footer styles
