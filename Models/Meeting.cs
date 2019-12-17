@@ -14,6 +14,7 @@ namespace SacramentPlanner.Models
         [Required]
         [DataType(DataType.Date)]
         [Display(Name = "Date")]
+        
         public DateTime MeetingDate { get; set; }
 
         [Required]

@@ -13,12 +13,15 @@ $(document).ready(function () {
             
         });
 
+        //alert( $("#OpeningSongDropDown").data("song") );
         //alert( $("#SacramentSongDropDown").data("song") );
+        //alert($("#ClosingSongDropDown").data("song"));
+
+
         
         $("#OpeningSongDropDown").val($("#OpeningSongDropDown").data("song"));
-        $("#ClosingSongDropDown").val($("#ClosingSongDropDown").data("song"));
         $("#SacramentSongDropDown").val($("#SacramentSongDropDown").data("song"));
-       
+        $("#ClosingSongDropDown").val($("#ClosingSongDropDown").data("song"));
     });
 
 

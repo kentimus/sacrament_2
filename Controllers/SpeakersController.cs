@@ -58,6 +58,19 @@ namespace SacramentPlanner.Controllers
                 return NotFound();
             }
 
+            var allMeetings = _context.Meeting.OrderByDescending(i => i.MeetingDate);
+            var viewModel = new Meeting();
+
+            foreach (var meeting in allMeetings)
+            {
+                if(meeting.MeetingID == speaker.MeetingID)
+                {
+                    viewModel = meeting;
+                }
+               
+            }
+            ViewBag.MeetingDate = viewModel.MeetingDate.ToString("d MMMM yyyy");
+
             return View(speaker);
         }
 
@@ -96,7 +109,7 @@ namespace SacramentPlanner.Controllers
             {
                 _context.Add(speaker);
                 await _context.SaveChangesAsync();
-                if(submit == "Add Another Speaker")
+                if(submit == "Add Another")
                 {
                     return Redirect("../Create/" + speaker.MeetingID);
                 }
@@ -190,6 +203,19 @@ namespace SacramentPlanner.Controllers
             {
                 return NotFound();
             }
+
+            var allMeetings = _context.Meeting.OrderByDescending(i => i.MeetingDate);
+            var viewModel = new Meeting();
+
+            foreach (var meeting in allMeetings)
+            {
+                if (meeting.MeetingID == speaker.MeetingID)
+                {
+                    viewModel = meeting;
+                }
+
+            }
+            ViewBag.MeetingDate = viewModel.MeetingDate.ToString("d MMMM yyyy");
 
             return View(speaker);
         }

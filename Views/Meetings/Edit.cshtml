@@ -1,73 +1,97 @@
 ﻿@model SacramentPlanner.Models.Meeting
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Sacrament Meeting";
 }
 
-<h1>Edit</h1>
+<h1 class="mt-5 mb-5">Edit Sacrament Meeting - @Model.MeetingDate.ToString("d MMMM yyyy")</h1>
 
-<h4>Meeting</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
+<form asp-action="Edit">
+    <input type="hidden" asp-for="MeetingID" />
+    <div class="row">
+        <div class="col-md-12">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="MeetingID" />
-            <div class="form-group">
-                <label asp-for="MeetingDate" class="control-label"></label>
-                <input asp-for="MeetingDate" class="form-control" />
-                <span asp-validation-for="MeetingDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ConductingLeader" class="control-label"></label>
-                <input asp-for="ConductingLeader" class="form-control" />
-                <span asp-validation-for="ConductingLeader" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="OpeningSong" class="control-label"></label>
+        </div>
+        <div class="col-md-4">
 
-                <select asp-for="OpeningSong" class="form-control" id="OpeningSongDropDown" data-song="@Model.OpeningSong">
-                    <option value="">Choose...</option>
-                </select>
-                <span asp-validation-for="OpeningSong" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="OpeningPrayer" class="control-label"></label>
-                <input asp-for="OpeningPrayer" class="form-control" />
-                <span asp-validation-for="OpeningPrayer" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SacramentSong" class="control-label"></label>
-                <select asp-for="SacramentSong" class="form-control" id="SacramentSongDropDown" data-song="@Model.SacramentSong">
-                    <option value="">Choose...</option>
-                </select>
-                <span asp-validation-for="SacramentSong" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IntermediateSong" class="control-label"></label>
-                <input asp-for="IntermediateSong" class="form-control" />
-                <span asp-validation-for="IntermediateSong" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClosingSong" class="control-label"></label>
+            <fieldset>
+                <legend>Basic Info</legend>
 
-                <select asp-for="ClosingSong" class="form-control" id="ClosingSongDropDown" data-song="@Model.ClosingSong">
-                    <option value="">Choose...</option>
-                </select>
-                <span asp-validation-for="ClosingSong" class="text-danger"></span>
-            </div>
+                <div class="form-group">
+                    <label asp-for="MeetingDate" class="control-label"></label>
+                    <input asp-for="MeetingDate" class="form-control" />
+                    <span asp-validation-for="MeetingDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ConductingLeader" class="control-label"></label>
+                    <input asp-for="ConductingLeader" class="form-control" />
+                    <span asp-validation-for="ConductingLeader" class="text-danger"></span>
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-md-4">
+            <fieldset>
+                <legend>Music</legend>
 
+                <div class="form-group">
+                    <label asp-for="OpeningSong" class="control-label"></label>
+                    <select asp-for="OpeningSong" class="form-control" id="OpeningSongDropDown" data-song="@Model.OpeningSong">
+                        <option value="">Choose...</option>
+                    </select>
+                    <span asp-validation-for="OpeningSong" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SacramentSong" class="control-label"></label>
+
+                    <select asp-for="SacramentSong" class="form-control" id="SacramentSongDropDown" data-song="@Model.SacramentSong">
+                        <option value="">Choose...</option>
+                    </select>
+                    <span asp-validation-for="SacramentSong" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IntermediateSong" class="control-label"></label>
+                    <input asp-for="IntermediateSong" class="form-control" />
+                    <span asp-validation-for="IntermediateSong" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ClosingSong" class="control-label"></label>
+
+                    <select asp-for="ClosingSong" class="form-control" id="ClosingSongDropDown" data-song="@Model.ClosingSong">
+                        <option value="">Choose...</option>
+                    </select>
+                    <span asp-validation-for="ClosingSong" class="text-danger"></span>
+                </div>
+            </fieldset>
+
+        </div>
+        <div class="col-md-4">
+            <fieldset>
+                <legend>Prayers</legend>
+
+                <div class="form-group">
+                    <label asp-for="OpeningPrayer" class="control-label"></label>
+                    <input asp-for="OpeningPrayer" class="form-control" />
+                    <span asp-validation-for="OpeningPrayer" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ClosingPrayer" class="control-label"></label>
+                    <input asp-for="ClosingPrayer" class="form-control" />
+                    <span asp-validation-for="ClosingPrayer" class="text-danger"></span>
+                </div>
+            </fieldset>
+
+
+
+
+
+        </div>
+        <div class="col-md-12 mt-5">
             <div class="form-group">
-                <label asp-for="ClosingPrayer" class="control-label"></label>
-                <input asp-for="ClosingPrayer" class="form-control" />
-                <span asp-validation-for="ClosingPrayer" class="text-danger"></span>
+                <input type="submit" value="Save Changes" class="btn btn-primary" />
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
+</form>
 
 <div>
     <a asp-action="Index">Back to List</a>

@@ -1,19 +1,19 @@
 ﻿@model IEnumerable<SacramentPlanner.Models.Speaker>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Speakers Archive";
 }
 
-<h1>Index</h1>
+<h1 class="mt-5">Speakers Archive</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-sm btn-outline-primary" asp-action="Create">Create New</a>
 </p>
 
 
 
 
-<table class="table" id="speakers-list">
+<table class="table table-striped" id="speakers-list">
     <thead>
         <tr>
             <th>
@@ -38,9 +38,7 @@
                         {
                             if (meeting.MeetingID == item.MeetingID)
                             {
-                                //@meeting.MeetingDate.ToString("d MMMM yyyy")
                                 @meeting.MeetingDate.ToString("d MMMM yyyy")
-                                //@meeting.MeetingDate.ToString("yyyy-MM-dd")
                             }
                             
 
@@ -54,9 +52,9 @@
                     @Html.DisplayFor(modelItem => item.Subject)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.SpeakerID">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.SpeakerID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.SpeakerID">Delete</a>
+                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.SpeakerID">Edit</a> 
+                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.SpeakerID">Details</a> 
+                    <a class="btn btn-secondary" asp-action="Delete" asp-route-id="@item.SpeakerID">Delete</a>
                 </td>
             </tr>
         }

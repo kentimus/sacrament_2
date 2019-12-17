@@ -3,13 +3,53 @@ for details on configuring this project to bundle and minify static web assets. 
 
 body {
     background: url(../images/bread_and_water2.jpg);
-    background-attachment : fixed;
-    background-size : cover;
-    background-position : bottom right;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: bottom right;
+    font-family: 'Raleway', sans-serif;
+    
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Cinzel', serif;
+}
+
+h3.alert-danger{
+    display : inline-block;
+    padding : 8px 5px;
+    border-radius : .25rem;
 }
 
 main {
     
+}
+
+.btn-primary {
+    background-color: #224761;
+    border-color : #224761;
+}
+
+.btn-outline-primary {
+    border-color: #224761;
+    color: #224761;
+}
+
+a{
+    color : slateblue;
+}
+
+.paginate_button{
+    display : inline-block;
+    margin :0  10px;
+    background-color : #224761;
+    color : white;
+    border-radius : .025rem;
+    padding : 3px 10px;
+}
+.paginate_button:hover{
+    text-decoration : none;
+    color : lightgoldenrodyellow;
+    box-shadow : 2px 2px 3px #555;
 }
 
 a.navbar-brand {
@@ -40,10 +80,47 @@ legend{
 }
 
 
+/* ------ PRINT STYLES --------*/
+@media print{
+    @page {
+        size: landscape;
+        margin : 0;
+    }
+
+    div.sacrament-program{
+        width : 45%;
+        float : left;
+    }
+    div.announcements{
+        width : 45%;
+        float : right;
+    }
+    div.announcements h2{
+        margin-bottom : 20px;
+        font-size : 1.5rem;
+    }
+    div.announcements h3{
+        text-align : left;
+        font-size : 1.1rem;
+    }
+    h2, h3{
+        text-align : center;
+    }
+    h2{
+        margin-top : 100px;
+    }
+      dd{
+          font-style : italic;
+          text-align : right;
+          margin-bottom : 30px;
+      }
+      
+}
+/* ------- End print styles*/
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 @media (min-width: 768px) {
   html {

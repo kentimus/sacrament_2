@@ -1,53 +1,56 @@
 ﻿@model SacramentPlanner.Models.Meeting
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Meeting Details";
 }
 
-<h1>Details</h1>
 
 
+<div class="sacrament-program">
+<h1 class="mt-5 d-print-none">Meeting Details</h1>
 
+<h2 class="d-none d-print-block">Team Angeles Ward</h2>
+<h3 class="d-none d-print-block">@Html.DisplayFor(model => model.MeetingDate)</h3>
 
 
 
 
 <div>
-    <h4>Meeting</h4>
+    
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
+        <dt class="col-sm-4 d-print-none">
             @Html.DisplayNameFor(model => model.MeetingDate)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-8 d-print-none">
             @Html.DisplayFor(model => model.MeetingDate)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.ConductingLeader)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-8">
             @Html.DisplayFor(model => model.ConductingLeader)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.OpeningSong)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-8">
             @Html.DisplayFor(model => model.OpeningSong)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.OpeningPrayer)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-8">
             @Html.DisplayFor(model => model.OpeningPrayer)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.SacramentSong)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-8">
             @Html.DisplayFor(model => model.SacramentSong)
         </dd>
-        <dt class="col-sm-2">Speakers:</dt>
-        <dd class="col-sm-10">
+        <dt class="col-sm-4">Speakers</dt>
+        <dd class="col-sm-8">
             @{
                 foreach (Speaker speaker in Model.Speakers)
                 {
@@ -55,28 +58,50 @@
                 }
             }
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.IntermediateSong)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-8">
             @Html.DisplayFor(model => model.IntermediateSong)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.ClosingSong)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-8">
             @Html.DisplayFor(model => model.ClosingSong)
         </dd>
 
-        <dt class="col-sm-2">
+        <dt class="col-sm-4 text-nowrap">
             @Html.DisplayNameFor(model => model.ClosingPrayer)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-8">
             @Html.DisplayFor(model => model.ClosingPrayer)
         </dd>
     </dl>
 </div>
-<div>
+
+    </div>
+
+<div class="announcements d-none d-print-block">
+    <h2>Announcements</h2>
+
+    <h3>Team Angeles Recieves A+++</h3>
+    <p>Bekah, Mathew, and Kent are happy to announce that Bro Blazzard of CIT365 
+    Stake gave Team Angeles an A+++ on their assignment! Refreshments to follow.</p>
+
+    <h3>End of Semester Party</h3>
+    <p>This Friday the semester is over. Party in the Cultural Hall.</p>
+
+    <h3>Monthly Temple Trip</h3>
+    <p>This month's temple trip will be to the Rome Italy Temple. Please make sure your
+    passport is valid. We don't want any snaffus like last month when we visited the Paris France Temple. 
+    (Looking at you, Brother Smith.)</p>
+
+    <img src="~/images/chapel.png" class="img-fluid" alt="a chapel" />
+</div>
+
+<div class="d-print-none">
+    <a href="#" onclick="window.print();return false;" class="btn btn-primary">Print</a>
     <a asp-action="Edit" asp-route-id="@Model.MeetingID">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
